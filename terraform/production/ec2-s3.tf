@@ -4,23 +4,23 @@ provider "aws" {
 }
 
 #create an s3 bucket 
-resource "aws_s3_bucket" "my_bucket-devt" {
- bucket = "my-bucket-devt-999000" 
+resource "aws_s3_bucket" "my_bucket-prod" {
+ bucket = "my-bucket-prod-999000" 
  tags = {
-  Name    = "bucket-devt"
-  Environment = "devt"
+  Name    = "bucket-prod"
+  Environment = "prod"
  }
 }
 
 #create an ec2 instance
-resource "aws_instance" "my_instance-devt" {
+resource "aws_instance" "my_instance-prod" {
  ami      = "ami-0866a3c8686eaeeba" 
  instance_type = "t2.micro" 
  key_name   = "vm-key" 
  security_groups = ["launch-wizard-1"]
  tags = {
   Name    = "ec2-rtu-terraform"
-  Environment = "devt"
+  Environment = "prod"
  }
 
 # User data to install NGINX and replace the default index.html
