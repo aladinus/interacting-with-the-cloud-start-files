@@ -12,7 +12,7 @@ resource "aws_s3_bucket" "my_bucket-prod" {
  }
 }
 
-#create an ec2 instance
+#create an ec2 instance -ubuntu
 resource "aws_instance" "my_instance-prod" {
  ami      = "ami-0866a3c8686eaeeba" 
  instance_type = "t2.micro" 

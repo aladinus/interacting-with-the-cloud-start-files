@@ -8,16 +8,15 @@ aws ec2 describe-instances --query 'Reservations[].Instances[].InstanceId' --out
 
 #create ec2 instance
 aws ec2 run-instances \
-  --image-id ami-0abcd1234efgh5678 \
+  --image-id ami-0866a3c8686eaeeba \
   --instance-type t2.micro \
   --count 1 \
   --key-name vm-key \
-  --security-group-ids SGID  \
-  --subnet-id SUBNET  \
+  --security-group-ids REPLACE-SGID  \
+  --subnet-id REPLACE-SUBNETID \
   --associate-public-ip-address \
   --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=ec2-cli}]"
 
 
 #delete ec2 instance
 aws ec2 terminate-instances --instance-ids <instance-id> 
-
